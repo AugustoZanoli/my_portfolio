@@ -1,1 +1,21 @@
-<p>footer</p>
+<footer class="footer">
+  <div class="container footer__inner">
+    <span class="footer__logo">AZ<span class="footer__dot">.</span></span>
+
+    <span class="footer__copy text-sm text-muted">
+      © {{ year }} Augusto Zanoli
+    </span>
+
+    <div class="footer__links">
+      
+        <a *ngFor="let link of links"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener"
+        class="footer__link text-sm"
+      >
+        {{ link.label }}
+      </a>
+    </div>
+  </div>
+</footer>
