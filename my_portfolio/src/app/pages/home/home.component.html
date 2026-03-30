@@ -1,1 +1,69 @@
-<p>home</p>
+<section class="hero section">
+  <div class="container">
+    <div class="hero__content animate-fade-up">
+      <span class="tag tag-accent hero__badge">Disponível para projetos</span>
+
+      <h1 class="display-xl hero__title">
+        Augusto<br>
+        <em>Zanoli</em>
+      </h1>
+
+      <p class="text-lg text-muted hero__subtitle">
+        Desenvolvedor Full Stack — construindo interfaces elegantes
+        e APIs robustas com Java, Spring Boot e Angular.
+      </p>
+
+      <div class="hero__actions">
+        <a routerLink="/projects" class="btn-primary">Ver projetos</a>
+        <a routerLink="/about" class="btn-outline">Sobre mim</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll text-muted text-sm">
+      scroll ↓
+    </div>
+  </div>
+</section>
+
+<section class="techs section-sm">
+  <div class="container">
+    <p class="text-sm text-muted techs__label">Tecnologias que uso</p>
+    <div class="techs__list">
+      <span *ngFor="let tech of techs" class="tag">{{ tech }}</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider container">
+
+<section class="awards section-sm">
+  <div class="container">
+    <h2 class="display-md awards__title">Reconhecimentos</h2>
+    <div class="awards__grid">
+      <div *ngFor="let award of awards" class="card awards__card">
+        <span class="awards__short text-accent font-semibold">{{ award.short }}</span>
+        <h3 class="awards__name font-medium">{{ award.title }}</h3>
+        <p class="text-sm text-muted">{{ award.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider container">
+
+<section class="cta section-sm">
+  <div class="container cta__inner">
+    <div>
+      <h2 class="display-md">Vamos trabalhar juntos?</h2>
+      <p class="text-muted text-lg">Aberto a novas oportunidades e projetos.</p>
+    </div>
+    
+    <a  href="https://www.linkedin.com/in/augusto-de-camargos-zanoli-9728b12a6/"
+      target="_blank"
+      rel="noopener"
+      class="btn-primary"
+    >
+      Entrar em contato
+    </a>
+  </div>
+</section>
