@@ -1,1 +1,85 @@
-<p>projetos</p>
+<section class="projects section">
+  <div class="container">
+
+    <div class="projects__header animate-fade-up">
+      <h1 class="display-lg">Projetos</h1>
+      <p class="text-lg text-muted">
+        Repositórios públicos organizados por categoria.
+      </p>
+    </div>
+
+    <div class="projects__filters">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-btn"
+        [class.is-active]="activeCategory === cat.label"
+        (click)="setCategory(cat.label)"
+      >
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="projects__state">
+      <div class="skeleton-grid">
+        <div *ngFor="let i of [1,2,3,4,5,6]" class="skeleton-card"></div>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="projects__state text-muted">
+      Não foi possível carregar os repositórios. Tente novamente mais tarde.
+    </div>
+
+    <div *ngIf="!loading && !error" class="projects__grid">
+      
+      <a  *ngFor="let repo of filteredRepos"
+        [href]="repo.html_url"
+        target="_blank"
+        rel="noopener"
+        class="repo-card card"
+      >
+        <div class="repo-card__header">
+          <h3 class="repo-card__name font-medium">{{ repo.name }}</h3>
+          <svg class="repo-card__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+
+        <p *ngIf="repo.description" class="repo-card__desc text-sm text-muted">
+          {{ repo.description }}
+        </p>
+        <p *ngIf="!repo.description" class="repo-card__desc text-sm text-muted repo-card__desc--empty">
+          Sem descrição
+        </p>
+
+        <div class="repo-card__footer">
+          <span *ngIf="repo.language" class="repo-card__lang">
+            <span class="repo-card__lang-dot" [style.background]="getLanguageColor(repo.language)"></span>
+            {{ repo.language }}
+          </span>
+
+          <div class="repo-card__stats">
+            <span class="repo-card__stat text-xs text-muted">
+              ★ {{ repo.stargazers_count }}
+            </span>
+            <span class="repo-card__stat text-xs text-muted">
+              ⑂ {{ repo.forks_count }}
+            </span>
+          </div>
+        </div>
+
+        <div *ngIf="repo.topics?.length" class="repo-card__topics">
+          <span *ngFor="let topic of repo.topics.slice(0, 3)" class="tag">
+            {{ topic }}
+          </span>
+        </div>
+      </a>
+
+      <div *ngIf="filteredRepos.length === 0" class="projects__empty text-muted">
+        Nenhum repositório nessa categoria ainda.
+      </div>
+    </div>
+
+  </div>
+</section>
