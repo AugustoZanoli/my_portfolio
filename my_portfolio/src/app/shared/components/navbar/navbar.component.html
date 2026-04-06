@@ -1,0 +1,44 @@
+<header class="navbar">
+  <div class="container navbar_inner">
+
+    <a routerLink="/" class="navbar_logo" (click)="closeMenu()">
+      AZ<span class="navbar_logo-dot">.</span>
+    </a>
+
+    <nav class="navbar_links" [class.is-open]="menuOpen">
+
+      <a
+        *ngFor="let link of links"
+        [routerLink]="link.path"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        class="navbar_link"
+        (click)="closeMenu()"
+      >
+        {{ link.label }}
+      </a>
+
+      <a
+        href="https://github.com/AugustoZanoli"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary navbar_cta"
+        (click)="closeMenu()"
+      >
+        GitHub
+      </a>
+
+    </nav>
+
+    <button
+      class="navbar_hamburger"
+      (click)="toggleMenu()"
+      [class.is-open]="menuOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>

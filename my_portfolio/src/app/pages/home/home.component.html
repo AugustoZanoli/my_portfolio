@@ -1,0 +1,92 @@
+<section class="hero section">
+  <div class="container">
+    <div class="hero_inner animate-fade-up">
+      <div class="hero_content">
+        <span class="tag tag-accent hero_badge">Disponível para projetos</span>
+
+        <h1 class="display-xl hero_title">
+          Augusto<br />
+          <em>Zanoli</em>
+        </h1>
+
+        <p class="text-lg text-muted hero_subtitle">
+          Desenvolvedor Full Stack — construindo interfaces elegantes e APIs
+          robustas com Java, Spring Boot e Angular.
+        </p>
+
+        <div class="hero_actions">
+          <a routerLink="/projects" class="btn-primary">Ver projetos</a>
+          <a routerLink="/about" class="btn-outline">Sobre mim</a>
+        </div>
+      </div>
+
+      <div class="hero_photo">
+        <img src="assets/me/augustozanoli.jpeg" alt="Augusto Zanoli" class="hero_photo-img" />
+      </div>
+    </div>
+
+    <div class="hero_scroll">
+      <span class="text">Scroll ↓</span>
+      <span class="line"></span>
+    </div>
+  </div>
+</section>
+
+<section class="techs section-sm">
+  <div class="container">
+    <div class="techs_list">
+      <span
+        *ngFor="let tech of techs"
+        class="tag"
+        [style.--tech-color]="tech.color"
+      >
+        <i [class]="tech.icon"></i>
+        {{ tech.name }}
+      </span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider container" />
+
+<section class="awards section-sm">
+  <div class="container">
+    <h2 class="display-md awards_title">Reconhecimentos</h2>
+    <div class="awards_grid">
+      <div *ngFor="let award of awards" class="card awards_card">
+        <span class="awards_short text-accent font-semibold">
+          <i data-lucide="award"></i>
+          {{award.short}}
+      </span>
+        <h3 class="awards_name font-medium">
+          {{ award.title }}
+        </h3>
+        <p class="text-sm text-muted">{{ award.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider container" />
+
+<section class="cta section-sm">
+  <div class="container">
+    <div class="cta_inner">
+      <div>
+        <h2 class="display-md">Vamos trabalhar juntos?</h2>
+        <p class="text-muted text-lg">
+          Aberto a novas oportunidades e projetos.
+        </p>
+      </div>
+
+      <a
+        href="https://www.linkedin.com/in/augusto-de-camargos-zanoli-9728b12a6/"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary"
+      >
+        Entrar em contato
+      </a>
+    </div>
+  </div>
+</section>

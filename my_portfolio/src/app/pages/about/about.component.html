@@ -1,0 +1,117 @@
+<section class="about section">
+  <div class="container">
+    <div class="about_header animate-fade-up">
+      <h1 class="display-lg">Sobre mim</h1>
+    </div>
+
+    <div class="about_bio">
+      <div class="about_bio-text">
+        <p class="text-lg">
+          Desenvolvedor Full Stack com forte atuação em backend, focado na
+          construção de aplicações web escaláveis, resilientes e bem
+          estruturadas.
+        </p>
+
+        <p class="text-base text-muted">
+          Atualmente, atuo na sustentação e evolução de um sistema de emissão de
+          notas fiscais, onde assumi de forma autônoma a continuidade do projeto
+          após a saída do Tech Lead. Sou responsável por decisões técnicas,
+          implementação de novas funcionalidades e manutenção de uma plataforma
+          crítica em produção.
+        </p>
+
+        <p class="text-base text-muted">
+          No backend, trabalho com <strong>Java e Spring Boot</strong>,
+          desenvolvendo APIs robustas e escaláveis. Tenho experiência com
+          <strong>microserviços</strong>, mensageria com <strong>Kafka</strong>,
+          rotinas assíncronas e integrações com <strong>AWS (S3 e SES)</strong>.
+        </p>
+
+        <p class="text-base text-muted">
+          No frontend, utilizo <strong>Angular</strong> para construir
+          interfaces modernas e responsivas. Também atuo com
+          <strong>PostgreSQL e MongoDB</strong>, integrando soluções com bancos
+          relacionais e não relacionais.
+        </p>
+
+        <p class="text-base text-muted">
+          Possuo experiência prévia com desenvolvimento mobile utilizando
+          <strong>Flutter</strong>, incluindo a continuidade de aplicações reais
+          após transição de desenvolvedor, além de atuação em projetos para
+          clientes como a Aperam. Também já trabalhei com <strong>PHP</strong> e
+          integração entre sistemas.
+        </p>
+
+        <p class="text-base text-muted">
+          Minha trajetória com tecnologia começou cedo, com envolvimento em
+          robótica, IoT e desenvolvimento de software, o que me proporcionou uma
+          base sólida em lógica e resolução de problemas. Fui medalhista
+          nacional na OBI e OBR.
+        </p>
+
+        <p class="text-base text-muted">
+          Atualmente, sigo expandindo meus conhecimentos em
+          <strong>Java e React Native</strong>, sempre buscando evolução contínua
+          como desenvolvedor.
+        </p>
+
+        <div class="about_actions">
+          <a
+            href="https://github.com/AugustoZanoli"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+          >
+            <i class="devicon-github-plain"></i>
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/augusto-de-camargos-zanoli-9728b12a6/"
+            target="_blank"
+            rel="noopener"
+            class="btn-outline"
+          >
+            <i class="devicon-linkedin-plain"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="about_scroll">
+      <span class="text">Scroll ↓</span>
+      <span class="line"></span>
+    </div>
+
+    <div class="about_techs">
+      <h2 class="display-md">Tecnologias</h2>
+      <div class="techs-grid">
+        <div *ngFor="let group of techs" class="techs-group">
+          <p class="techs-group_label text-xs text-muted">
+            {{ group.category }}
+          </p>
+          <div class="techs-group_items">
+            <span *ngFor="let item of group.items" class="tag">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="about_awards">
+      <h2 class="display-md">Reconhecimentos</h2>
+      <div class="awards-grid">
+        <div *ngFor="let award of awards" class="card award-card">
+          <span class="award-card_short text-accent font-semibold">
+            <i data-lucide="award"></i>
+            {{ award.short }}
+          </span>
+          <h3 class="award-card_title font-medium">{{ award.title }}</h3>
+          <p class="text-sm text-muted">{{ award.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+
+  &_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  &_logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+
+    &-dot { color: var(--color-accent); }
+  }
+
+  &_links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  &_link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+
+    &:hover { color: var(--color-text); background: var(--color-surface-2); }
+    &.is-active { color: var(--color-text); background: var(--color-surface-2); }
+  }
+
+  &_cta { margin-left: var(--space-2); }
+
+  &_hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: all var(--transition-base);
+    }
+
+    &.is-open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    &_hamburger { display: flex; }
+
+    &_links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) var(--space-5);
+      gap: var(--space-2);
+
+      &.is-open { display: flex; }
+    }
+
+    &_link { padding: 10px 12px; }
+    &_cta { margin-left: 0; justify-content: center; }
+  }
+}

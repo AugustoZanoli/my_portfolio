@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Tradutor de Linkedin: Uma reflexão sobre complexidade, criatividade e boas práticas de desenvolvimento de software utilizando IA",
+    "summary": "Uma breve reflexão a respeito de complexidade, criatividade e boas práticas de desenvolvimento de software utilizando IA.",
+    "date": "2026-04-05",
+    "tags": ["IA", "Produtividade", "Tecnologia"],
+    "url": "https://www.linkedin.com/posts/augusto-de-camargos-zanoli-9728b12a6_inteligenciaartificial-tecnologia-inovacao-activity-7446687484501057536-alZV?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEnQxyYBptRTc-AnPx1wb8p4GaBBWC2qjN8",
+    "source": {
+      "name": "LinkedIn",
+      "icon": "devicon-linkedin-plain"
+    },
+    "readTime": "1 min"
+  },
+  {
+    "title": "OAuth2: Estruturando login e autorização de forma segura e eficiente para APIs",
+    "summary": "Como utilizei o OAuth2 para estruturar login e autorização de forma segura e eficiente para APIs, garantindo a proteção dos dados dos usuários e a integridade do sistema.",
+    "date": "2026-03-08",
+    "tags": ["Java", "Segurança", "APIs", "Spring Boot"],
+    "url": "https://www.linkedin.com/posts/augusto-de-camargos-zanoli-9728b12a6_us-english-one-of-the-coolest-things-ive-activity-7434745565923540992-lyaK?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEnQxyYBptRTc-AnPx1wb8p4GaBBWC2qjN8",
+    "source": {
+      "name": "LinkedIn",
+      "icon": "devicon-linkedin-plain"
+    },
+    "readTime": "2 min"
+  }
+]
