@@ -1,1 +1,53 @@
-<p>blog</p>
+<section class="blog section">
+  <div class="container">
+    <!-- Header -->
+    <div class="blog__header animate-fade-up">
+      <h1 class="display-lg">Blog</h1>
+      <p class="text-lg text-muted">
+        Artigos e reflexões sobre desenvolvimento, tecnologia e carreira.
+      </p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="blog__filters">
+      <button
+        *ngFor="let tag of allTags"
+        class="filter-btn"
+        [class.is-active]="activeTag === tag"
+        (click)="setTag(tag)"
+      >
+        {{ tag }}
+      </button>
+    </div>
+
+    <!-- Posts -->
+    <div class="blog__list">
+      <a
+        *ngFor="let post of filteredPosts"
+        [href]="post.url"
+        target="_blank"
+        rel="noopener"
+        class="post-card card"
+      >
+        <div class="post-card__meta">
+          <span class="tag tag-accent">{{ post.source }}</span>
+          <span class="text-xs text-muted">{{ formatDate(post.date) }}</span>
+        </div>
+
+        <h2 class="post-card__title font-medium">{{ post.title }}</h2>
+        <p class="post-card__summary text-sm text-muted">{{ post.summary }}</p>
+
+        <div class="post-card__footer">
+          <div class="post-card__tags">
+            <span *ngFor="let tag of post.tags" class="tag">{{ tag }}</span>
+          </div>
+          <span class="post-card__link text-sm text-accent">Ler →</span>
+        </div>
+      </a>
+
+      <div *ngIf="filteredPosts.length === 0" class="blog__empty text-muted">
+        Nenhum post nessa categoria ainda.
+      </div>
+    </div>
+  </div>
+</section>
