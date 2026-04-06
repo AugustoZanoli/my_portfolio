@@ -1,9 +1,9 @@
 .about {
-  &__header {
+  &_header {
     margin-bottom: var(--space-7);
   }
 
-  &__bio {
+  &_bio {
     margin-bottom: var(--space-7);
 
     p + p {
@@ -16,23 +16,28 @@
     }
   }
 
-  &__actions {
+  &_actions {
     display: flex;
     gap: var(--space-3);
     margin-top: var(--space-6);
     flex-wrap: wrap;
   }
 
-  &__techs {
+  &_techs {
     padding: var(--space-7) 0;
 
     h2 { margin-bottom: var(--space-6); }
   }
 
-  &__awards {
+  &_awards {
     padding: var(--space-7) 0;
 
     h2 { margin-bottom: var(--space-6); }
+  }
+
+  &_scroll {
+    margin-top: var(--space-9);
+    letter-spacing: 0.05em;
   }
 }
 
@@ -47,13 +52,13 @@
   flex-direction: column;
   gap: var(--space-3);
 
-  &__label {
+  &_label {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.7rem;
   }
 
-  &__items {
+  &_items {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
@@ -71,8 +76,40 @@
   flex-direction: column;
   gap: var(--space-2);
 
-  &__short {
+  &_short {
     font-family: var(--font-display);
     font-size: 1.25rem;
   }
+}
+
+.about_scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.7;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: #444;
+  position: relative;
+  overflow: hidden;
+}
+
+.line::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background: #aaa;
+  animation: slide 2s infinite;
+}
+
+@keyframes slide {
+  0% { left: -20px; }
+  100% { left: 100%; }
 }

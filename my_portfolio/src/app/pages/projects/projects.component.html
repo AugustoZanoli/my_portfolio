@@ -1,85 +1,120 @@
 <section class="projects section">
   <div class="container">
 
-    <div class="projects__header animate-fade-up">
+    <div class="projects_header animate-fade-up">
       <h1 class="display-lg">Projetos</h1>
-      <p class="text-lg text-muted">
-        Repositórios públicos organizados por categoria.
-      </p>
+      <p class="text-lg text-muted">Repositórios públicos organizados por categoria.</p>
     </div>
 
-    <div class="projects__filters">
+    <div class="projects_filters">
       <button
         *ngFor="let cat of categories"
         class="filter-btn"
         [class.is-active]="activeCategory === cat.label"
         (click)="setCategory(cat.label)"
-      >
-        {{ cat.label }}
-      </button>
+      >{{ cat.label }}</button>
     </div>
 
-    <div *ngIf="loading" class="projects__state">
-      <div class="skeleton-grid">
-        <div *ngFor="let i of [1,2,3,4,5,6]" class="skeleton-card"></div>
-      </div>
+    <div *ngIf="loading" class="skeleton-grid">
+      <div *ngFor="let i of [1,2,3,4,5,6]" class="skeleton-card"></div>
     </div>
 
-    <div *ngIf="error" class="projects__state text-muted">
-      Não foi possível carregar os repositórios. Tente novamente mais tarde.
+    <div *ngIf="error" class="projects_state text-muted">
+      Não foi possível carregar os repositórios.
     </div>
 
-    <div *ngIf="!loading && !error" class="projects__grid">
-      
-      <a  *ngFor="let repo of filteredRepos"
-        [href]="repo.html_url"
-        target="_blank"
-        rel="noopener"
+    <div *ngIf="!loading && !error" class="projects_grid">
+      <div
+        *ngFor="let repo of filteredRepos"
         class="repo-card card"
+        (click)="openModal(repo)"
       >
-        <div class="repo-card__header">
-          <h3 class="repo-card__name font-medium">{{ repo.name }}</h3>
-          <svg class="repo-card__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-            <polyline points="15 3 21 3 21 9"/>
-            <line x1="10" y1="14" x2="21" y2="3"/>
+        <div class="repo-card_header">
+          <h3 class="repo-card_name font-medium">{{ repo.name }}</h3>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="repo-card_arrow">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
           </svg>
         </div>
 
-        <p *ngIf="repo.description" class="repo-card__desc text-sm text-muted">
-          {{ repo.description }}
-        </p>
-        <p *ngIf="!repo.description" class="repo-card__desc text-sm text-muted repo-card__desc--empty">
-          Sem descrição
+        <p class="repo-card_desc text-sm text-muted">
+          {{ repo.description || 'Sem descrição' }}
         </p>
 
-        <div class="repo-card__footer">
-          <span *ngIf="repo.language" class="repo-card__lang">
-            <span class="repo-card__lang-dot" [style.background]="getLanguageColor(repo.language)"></span>
+        <div class="repo-card_footer">
+          <span *ngIf="repo.language" class="repo-card_lang">
+            <span class="repo-card_lang-dot" [style.background]="getLanguageColor(repo.language)"></span>
             {{ repo.language }}
           </span>
-
-          <div class="repo-card__stats">
-            <span class="repo-card__stat text-xs text-muted">
-              ★ {{ repo.stargazers_count }}
-            </span>
-            <span class="repo-card__stat text-xs text-muted">
-              ⑂ {{ repo.forks_count }}
-            </span>
-          </div>
+          <span class="text-xs text-muted">★ {{ repo.stargazers_count }}</span>
         </div>
+      </div>
 
-        <div *ngIf="repo.topics?.length" class="repo-card__topics">
-          <span *ngFor="let topic of repo.topics.slice(0, 3)" class="tag">
-            {{ topic }}
-          </span>
-        </div>
-      </a>
-
-      <div *ngIf="filteredRepos.length === 0" class="projects__empty text-muted">
-        Nenhum repositório nessa categoria ainda.
+      <div *ngIf="filteredRepos.length === 0" class="projects_empty text-muted">
+        Nenhum repositório nessa categoria.
       </div>
     </div>
 
   </div>
 </section>
+
+<div class="modal-overlay" *ngIf="selectedRepo" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <div class="modal_preview">
+      <img
+        src="assets/projects/generic.jpg"
+        [alt]="selectedRepo.name"
+        class="modal_preview-img"
+      />
+      <div class="modal_preview-overlay">
+        <span *ngIf="selectedRepo.language" class="modal_lang">
+          <span class="modal_lang-dot" [style.background]="getLanguageColor(selectedRepo.language)"></span>
+          {{ selectedRepo.language }}
+        </span>
+      </div>
+    </div>
+
+    <div class="modal_info">
+      <button class="modal_close" (click)="closeModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <h2 class="modal_title font-medium">{{ selectedRepo.name }}</h2>
+
+      <p class="text-base text-muted modal_desc">
+        {{ selectedRepo.description || 'Sem descrição disponível.' }}
+      </p>
+
+      <div class="modal_stats">
+        <div class="modal_stat">
+          <span class="text-xs text-muted">Stars</span>
+          <span class="font-medium">★ {{ selectedRepo.stargazers_count }}</span>
+        </div>
+        <div class="modal_stat">
+          <span class="text-xs text-muted">Forks</span>
+          <span class="font-medium">⑂ {{ selectedRepo.forks_count }}</span>
+        </div>
+        <div class="modal_stat" *ngIf="selectedRepo.language">
+          <span class="text-xs text-muted">Linguagem</span>
+          <span class="font-medium">{{ selectedRepo.language }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="selectedRepo.topics?.length" class="modal_topics">
+        <span *ngFor="let topic of selectedRepo.topics" class="tag">{{ topic }}</span>
+      </div>
+
+      <div class="modal_actions">
+        <a [href]="selectedRepo.html_url" target="_blank" rel="noopener" class="btn-primary">
+          Ver no GitHub
+        </a>
+        <a *ngIf="selectedRepo.homepage" [href]="selectedRepo.homepage" target="_blank" rel="noopener" class="btn-outline">
+          Demo ao vivo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -3,30 +3,30 @@
   padding: var(--space-6) 0;
   background: var(--color-surface);
 
-  &__inner {
+  &_inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
   }
 
-  &__logo {
+  &_logo {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
 
-  &__dot {
+  &_dot {
     color: var(--color-accent);
   }
 
-  &__links {
+  &_links {
     display: flex;
     gap: var(--space-4);
   }
 
-  &__link {
+  &_link {
     color: var(--color-text-muted);
     transition: color var(--transition-fast);
 
@@ -36,7 +36,7 @@
   }
 
   @media (max-width: 768px) {
-    &__inner {
+    &_inner {
       flex-direction: column;
       text-align: center;
     }

@@ -1,3 +1,5 @@
+declare const lucide: any;
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,8 +10,8 @@ import { Component } from '@angular/core';
 export class AboutComponent {
   techs = [
     { category: 'Backend',   items: ['Java', 'Spring Boot', 'Python', 'Kotlin', 'PHP'] },
-    { category: 'Frontend',  items: ['Angular', 'TypeScript', 'Next.js', 'HTML', 'CSS'] },
-    { category: 'Banco de Dados', items: ['PostgreSQL', 'MongoDB'] },
+    { category: 'Frontend',  items: ['Angular', 'TypeScript', 'Next.js', 'Flutter', 'React Native', 'HTML', 'CSS'] },
+    { category: 'Banco de Dados', items: ['PostgreSQL', 'MongoDB', 'Firebase'] },
     { category: 'Outros',    items: ['Git', 'REST APIs', 'Docker'] },
   ];
 
@@ -25,4 +27,8 @@ export class AboutComponent {
       description: 'Medalha nacional — desafio envolvendo automação, lógica e trabalho em equipe.',
     },
   ];
+
+  ngAfterViewInit() {
+    lucide.createIcons();
+  }
 }
