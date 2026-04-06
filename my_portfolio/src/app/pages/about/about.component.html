@@ -1,1 +1,84 @@
-<p>Sobre</p>
+<section class="about section">
+  <div class="container">
+    <div class="about__header animate-fade-up">
+      <h1 class="display-lg">Sobre mim</h1>
+    </div>
+
+    <div class="about__bio">
+      <div class="about__bio-text">
+        <p class="text-lg">
+          Sou desenvolvedor Full Stack com foco em construir aplicações web
+          modernas, escaláveis e bem estruturadas.
+        </p>
+        <p class="text-base text-muted">
+          No backend, trabalho com <strong>Java e Spring Boot</strong>,
+          desenvolvendo APIs robustas e escaláveis. No frontend, uso
+          <strong>Angular</strong> para criar interfaces dinâmicas e
+          responsivas. Também tenho experiência com
+          <strong>PostgreSQL e MongoDB</strong>, integrando soluções com bancos
+          relacionais e não relacionais.
+        </p>
+        <p class="text-base text-muted">
+          Tenho experiência prévia com PHP e Next.js, além de vivência com
+          integração entre sistemas. Me destaco por buscar boas práticas de
+          versionamento, escrita de código limpo e foco na experiência do
+          usuário.
+        </p>
+        <p class="text-base text-muted">
+          Atualmente expandindo conhecimentos em
+          <strong>Python e Kotlin</strong>, em constante evolução como
+          desenvolvedor.
+        </p>
+
+        <div class="about__actions">
+          <a
+            href="https://github.com/AugustoZanoli"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            >GitHub</a
+          >
+
+          <a
+            href="https://www.linkedin.com/in/augusto-de-camargos-zanoli-9728b12a6/"
+            target="_blank"
+            rel="noopener"
+            class="btn-outline"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="about__techs">
+      <h2 class="display-md">Tecnologias</h2>
+      <div class="techs-grid">
+        <div *ngFor="let group of techs" class="techs-group">
+          <p class="techs-group__label text-xs text-muted">
+            {{ group.category }}
+          </p>
+          <div class="techs-group__items">
+            <span *ngFor="let item of group.items" class="tag">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="about__awards">
+      <h2 class="display-md">Reconhecimentos</h2>
+      <div class="awards-grid">
+        <div *ngFor="let award of awards" class="card award-card">
+          <span class="award-card__short text-accent font-semibold">{{
+            award.short
+          }}</span>
+          <h3 class="award-card__title font-medium">{{ award.title }}</h3>
+          <p class="text-sm text-muted">{{ award.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

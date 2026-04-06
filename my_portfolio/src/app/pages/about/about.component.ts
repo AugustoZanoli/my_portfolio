@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
+  techs = [
+    { category: 'Backend',   items: ['Java', 'Spring Boot', 'Python', 'Kotlin', 'PHP'] },
+    { category: 'Frontend',  items: ['Angular', 'TypeScript', 'Next.js', 'HTML', 'CSS'] },
+    { category: 'Banco de Dados', items: ['PostgreSQL', 'MongoDB'] },
+    { category: 'Outros',    items: ['Git', 'REST APIs', 'Docker'] },
+  ];
 
+  awards = [
+    {
+      short: 'OBI',
+      title: 'Olimpíada Brasileira de Informática',
+      description: 'Medalha nacional — competição que fortaleceu minha lógica de programação e capacidade de resolver problemas complexos.',
+    },
+    {
+      short: 'OBR',
+      title: 'Olimpíada Brasileira de Robótica',
+      description: 'Medalha nacional — desafio envolvendo automação, lógica e trabalho em equipe.',
+    },
+  ];
 }

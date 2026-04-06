@@ -1,0 +1,78 @@
+.about {
+  &__header {
+    margin-bottom: var(--space-7);
+  }
+
+  &__bio {
+    margin-bottom: var(--space-7);
+
+    p + p {
+      margin-top: var(--space-4);
+    }
+
+    strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  &__techs {
+    padding: var(--space-7) 0;
+
+    h2 { margin-bottom: var(--space-6); }
+  }
+
+  &__awards {
+    padding: var(--space-7) 0;
+
+    h2 { margin-bottom: var(--space-6); }
+  }
+}
+
+.techs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+}
+
+.techs-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  &__label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.award-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  &__short {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+}
